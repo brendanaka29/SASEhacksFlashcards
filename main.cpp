@@ -34,10 +34,10 @@ void ReadFile(string file, vector<flashcard>& theList) {
     else {
         cout << "Unable to open file";
     }
-    for (int i = 0; i < theList.size(); i++) {
+    /*for (int i = 0; i < theList.size(); i++) {
         cout << "question: " << theList[i].getQuestion() << endl;
         cout << "answer: " << theList[i].getAnswer() << endl;
-    }
+    }*/
 }
 
 void WriteFile(vector<flashcard>& theList) {
@@ -102,13 +102,16 @@ void options(int option, vector<flashcard>& theList) {
 int main() {
     //Input question and answer until the user types in stop
     vector<flashcard> theList;
-    string mOrl = "m";
+    string mOrl = "";
+
+    cout << "Would you like to manually input your flashcards (m) or load a file (l)?" << endl;
+     getline(cin, mOrl);
 
     if (mOrl == "m") {
         input(theList);
     }
-    else {
-        ReadFile("load.txt", theList);
+    else if (mOrl == "l") {
+        //ReadFile("load.txt", theList);
     }
 
 
